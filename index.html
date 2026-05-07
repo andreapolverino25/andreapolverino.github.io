@@ -10,6 +10,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+	  /* ─── CERT MODAL ─── */
+	.cert-modal-overlay {
+	  display: none; position: fixed; inset: 0; z-index: 300;
+	  background: rgba(0,0,0,0.8); backdrop-filter: blur(4px);
+	  align-items: center; justify-content: center; padding: 1rem;
+	}
+	.cert-modal-overlay.open { display: flex; }
+	.cert-modal {
+	  background: #1c1c1f; border: 1px solid #3f3f46; border-radius: 0.75rem;
+	  max-width: 520px; width: 100%; position: relative; padding: 2rem;
+	  animation: modalIn 0.22s cubic-bezier(0.16,1,0.3,1);
+	}
+	.cert-modal h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; }
+	.cert-item {
+	  display: flex; align-items: flex-start; gap: 1rem;
+	  padding: 1rem 0; border-bottom: 1px solid #27272a;
+	}
+	.cert-item:last-child { border-bottom: none; }
+	.cert-badge {
+	  width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+	  display: flex; align-items: center; justify-content: center;
+	  font-size: 1.3rem; background: #27272a; border: 1px solid #3f3f46;
+	}
+	.cert-info { flex: 1; }
+	.cert-name { font-size: 0.9rem; font-weight: 600; color: #ffffff; line-height: 1.3; margin-bottom: 0.25rem; }
+	.cert-meta { font-size: 0.78rem; color: #71717a; }
+	.cert-year {
+	  font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem;
+	  border-radius: 9999px; background: #27272a; border: 1px solid #3f3f46;
+	  color: #a1a1aa; white-space: nowrap; align-self: center;
+	}
+	.stack-card.clickable { cursor: pointer; }
+	.stack-card.clickable:hover { border-color: #62D84E44; }
+	.cert-hint {
+	  font-size: 0.72rem; color: #52525b; margin-top: 0.35rem;
+	  display: flex; align-items: center; gap: 0.3rem;
+	}
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; scroll-behavior: smooth; }
     body {
@@ -305,14 +342,18 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title" data-i18n="stack-title">Tecnologie Usate</h2>
-      <div class="stack-grid">
-        <div class="stack-card">
-			<div class="stack-logo-wrap">
-			  <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/ServiceNow_logo.svg"
-				   alt="ServiceNow" class="stack-logo" />
-			</div>
-          <h3>ServiceNow</h3>
-          <p data-i18n="stack-snow">3 Certificazioni</p>
+      <div class="stack-card clickable" onclick="openCertModal()" style="cursor:pointer">
+	  <div class="stack-logo-wrap">
+	    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/ServiceNow_logo.svg"
+	         alt="ServiceNow" class="stack-logo" />
+	  </div>
+	  <h3>ServiceNow</h3>
+	  <p data-i18n="stack-snow">3 Certificazioni</p>
+	  <p class="cert-hint">
+	    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+	    Clicca per vedere
+	  </p>
+	</div>
         </div>
         <div class="stack-card">
 			<div class="stack-logo-wrap">
@@ -384,7 +425,41 @@
       <div class="modal-tags" id="modalTags"></div>
     </div>
   </div>
-
+	<!-- CERT MODAL -->
+<div class="cert-modal-overlay" id="certModalOverlay">
+  <div class="cert-modal">
+    <button class="modal-close" onclick="closeCertModal()" aria-label="Chiudi">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
+      </svg>
+    </button>
+    <h2>🏅 ServiceNow Certifications</h2>
+    <div class="cert-item">
+      <div class="cert-badge">⚙️</div>
+      <div class="cert-info">
+        <div class="cert-name">Certified System Administrator (CSA)</div>
+        <div class="cert-meta">ServiceNow</div>
+      </div>
+      <span class="cert-year">2023</span>
+    </div>
+    <div class="cert-item">
+      <div class="cert-badge">🛠️</div>
+      <div class="cert-info">
+        <div class="cert-name">CIS – IT Service Management (CIS-ITSM)</div>
+        <div class="cert-meta">Certified Implementation Specialist</div>
+      </div>
+      <span class="cert-year">2024</span>
+    </div>
+    <div class="cert-item">
+      <div class="cert-badge">🗄️</div>
+      <div class="cert-info">
+        <div class="cert-name">CIS – Data Foundation (CIS-DF)</div>
+        <div class="cert-meta">Certified Implementation Specialist</div>
+      </div>
+      <span class="cert-year">2026</span>
+    </div>
+  </div>
+</div>
   <script>
   /* ═══════════════════════════════════════════
      PROJECT DATA
@@ -670,6 +745,17 @@
 
   // Init
   applyLang('it');
+  function openCertModal() {
+  document.getElementById('certModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCertModal() {
+  document.getElementById('certModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('certModalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('certModalOverlay')) closeCertModal();
+});
   </script>
 </body>
 </html>
