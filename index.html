@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="it" data-lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tu Nombre — Desarrollador Full-Stack</title>
-  <meta name="description" content="Portfolio de desarrollo web full-stack. Especializado en HTML, CSS, WordPress, PHP y MySQL." />
+  <title data-i18n="page-title">Il Tuo Nome — Sviluppatore Full-Stack</title>
+  <meta name="description" content="Portfolio di sviluppo web full-stack. Specializzato in HTML, CSS, WordPress, PHP e MySQL." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,399 +12,156 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── Reset & Base ─────────────────────────────────────────── */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-weight: 400;
-      background-color: #18181b; /* zinc-900 */
+      background-color: #18181b;
       color: #ffffff;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    /* ─── Layout Helpers ────────────────────────────────────────── */
-    .container {
-      max-width: 72rem; /* ~1152px */
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ─── Navigation ────────────────────────────────────────────── */
+    /* ─── Navigation ─── */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background-color: rgba(24, 24, 27, 0.85);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background-color: rgba(24,24,27,0.85);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid #27272a; /* zinc-800 */
+      border-bottom: 1px solid #27272a;
     }
-
     .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 1.5rem;
-      max-width: 72rem;
-      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1.5rem; max-width: 72rem; margin: 0 auto;
     }
+    .nav-logo { font-size: 1.25rem; font-weight: 500; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: #ffffff; transition: color 0.2s; }
+    .nav-links a:hover { color: #a1a1aa; }
+    .nav-links svg { width: 1.25rem; height: 1.25rem; }
 
-    .nav-logo {
-      font-size: 1.25rem;
+    /* ─── Language Toggle Button ─── */
+    .lang-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid #3f3f46;
+      border-radius: 9999px;
+      background: transparent;
+      color: #a1a1aa;
+      font-size: 0.8rem;
       font-weight: 500;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      text-transform: uppercase;
     }
+    .lang-btn:hover { border-color: #71717a; color: #ffffff; background: #27272a; }
+    .lang-btn .lang-flag { font-size: 1rem; line-height: 1; }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #ffffff;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #a1a1aa; /* zinc-400 */
-    }
-
-    .nav-links svg {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-
-    /* ─── Hero ──────────────────────────────────────────────────── */
-    .hero {
-      padding-top: 8rem;
-      padding-bottom: 5rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    @media (min-width: 768px) {
-      .hero-grid {
-        grid-template-columns: 7fr 5fr;
-      }
-    }
+    /* ─── Hero ─── */
+    .hero { padding-top: 8rem; padding-bottom: 5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+    @media (min-width: 768px) { .hero-grid { grid-template-columns: 7fr 5fr; } }
 
     .badge {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: #27272a; /* zinc-800 */
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      margin-bottom: 1.5rem;
+      display: inline-block; padding: 0.5rem 1rem;
+      background-color: #27272a; border-radius: 9999px;
+      font-size: 0.875rem; margin-bottom: 1.5rem;
     }
+    .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 500; line-height: 1.1; margin-bottom: 1.5rem; }
+    .hero h1 .muted { color: #71717a; }
+    .hero-desc { font-size: 1.25rem; color: #a1a1aa; margin-bottom: 2rem; max-width: 36rem; line-height: 1.7; }
 
-    .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 500;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 .muted {
-      color: #71717a; /* zinc-500 */
-    }
-
-    .hero-desc {
-      font-size: 1.25rem;
-      color: #a1a1aa; /* zinc-400 */
-      margin-bottom: 2rem;
-      max-width: 36rem;
-      line-height: 1.7;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background-color: #ffffff;
-      color: #000000;
-      font-weight: 500;
-      transition: background-color 0.2s;
-      cursor: pointer;
+      display: inline-block; padding: 1rem 2rem;
+      background-color: #ffffff; color: #000000; font-weight: 500;
+      transition: background-color 0.2s; cursor: pointer;
     }
-
-    .btn-primary:hover {
-      background-color: #e4e4e7; /* zinc-200 */
-    }
-
+    .btn-primary:hover { background-color: #e4e4e7; }
     .btn-secondary {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border: 1px solid #3f3f46; /* zinc-700 */
-      color: #ffffff;
-      font-weight: 500;
-      transition: border-color 0.2s;
-      cursor: pointer;
+      display: inline-block; padding: 1rem 2rem;
+      border: 1px solid #3f3f46; color: #ffffff; font-weight: 500;
+      transition: border-color 0.2s; cursor: pointer;
     }
+    .btn-secondary:hover { border-color: #71717a; }
 
-    .btn-secondary:hover {
-      border-color: #71717a; /* zinc-500 */
-    }
-
-    /* Profile image */
-    .hero-image-wrap {
-      position: relative;
-    }
-
+    .hero-image-wrap { position: relative; }
     .hero-image-glow {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(168,85,247,0.2));
-      filter: blur(48px);
-      border-radius: 0.5rem;
+      filter: blur(48px); border-radius: 0.5rem;
     }
-
     .hero-image-wrap img {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border: 1px solid #27272a; /* zinc-800 */
+      position: relative; width: 100%; aspect-ratio: 1/1; object-fit: cover;
+      border: 1px solid #27272a;
     }
 
-    /* ─── Section Base ──────────────────────────────────────────── */
-    .section {
-      padding: 5rem 1.5rem;
-      border-top: 1px solid #27272a; /* zinc-800 */
-    }
+    /* ─── Section Base ─── */
+    .section { padding: 5rem 1.5rem; border-top: 1px solid #27272a; }
+    .section-title { font-size: 1.875rem; font-weight: 500; margin-bottom: 3rem; }
 
-    .section-title {
-      font-size: 1.875rem;
-      font-weight: 500;
-      margin-bottom: 3rem;
-    }
-
-    /* ─── Stack Section ─────────────────────────────────────────── */
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .stack-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
+    /* ─── Stack ─── */
+    .stack-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+    @media (min-width: 768px) { .stack-grid { grid-template-columns: repeat(4,1fr); } }
     .stack-card {
-      padding: 1.5rem;
-      background-color: #27272a; /* zinc-800 */
-      border: 1px solid #3f3f46; /* zinc-700 */
+      padding: 1.5rem; background-color: #27272a; border: 1px solid #3f3f46;
       transition: border-color 0.2s;
     }
+    .stack-card:hover { border-color: #52525b; }
+    .stack-card svg { width: 2rem; height: 2rem; margin-bottom: 1rem; }
+    .stack-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .stack-card p { font-size: 0.875rem; color: #a1a1aa; }
 
-    .stack-card:hover {
-      border-color: #52525b; /* zinc-600 */
-    }
-
-    .stack-card svg {
-      width: 2rem;
-      height: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .stack-card h3 {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-
-    .stack-card p {
-      font-size: 0.875rem;
-      color: #a1a1aa; /* zinc-400 */
-    }
-
-    /* ─── Projects Section ──────────────────────────────────────── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media (min-width: 768px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
+    /* ─── Projects ─── */
+    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    @media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2,1fr); } }
     .project-card {
-      background-color: #27272a; /* zinc-800 */
-      border: 1px solid #3f3f46; /* zinc-700 */
-      overflow: hidden;
-      transition: border-color 0.2s;
+      background-color: #27272a; border: 1px solid #3f3f46;
+      overflow: hidden; transition: border-color 0.2s;
     }
-
-    .project-card:hover {
-      border-color: #52525b; /* zinc-600 */
-    }
-
-    .project-thumb {
-      height: 12rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .project-thumb span {
-      font-size: 3.75rem;
-      opacity: 0.5;
-    }
-
-    .project-thumb.blue   { background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(147,51,234,0.2)); }
+    .project-card:hover { border-color: #52525b; }
+    .project-thumb { height: 12rem; display: flex; align-items: center; justify-content: center; }
+    .project-thumb span { font-size: 3.75rem; opacity: 0.5; }
+    .project-thumb.blue   { background: linear-gradient(135deg, rgba(37,99,235,0.2),  rgba(147,51,234,0.2)); }
     .project-thumb.green  { background: linear-gradient(135deg, rgba(22,163,74,0.2),  rgba(13,148,136,0.2)); }
     .project-thumb.orange { background: linear-gradient(135deg, rgba(234,88,12,0.2),  rgba(220,38,38,0.2)); }
     .project-thumb.purple { background: linear-gradient(135deg, rgba(147,51,234,0.2), rgba(219,39,119,0.2)); }
+    .project-body { padding: 1.5rem; }
+    .project-body h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.75rem; }
+    .project-body p { color: #a1a1aa; margin-bottom: 1rem; line-height: 1.6; }
+    .tag-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag { font-size: 0.75rem; padding: 0.25rem 0.75rem; background-color: #3f3f46; color: #d4d4d8; }
 
-    .project-body {
-      padding: 1.5rem;
-    }
-
-    .project-body h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-body p {
-      color: #a1a1aa; /* zinc-400 */
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .tag-list {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.75rem;
-      background-color: #3f3f46; /* zinc-700 */
-      color: #d4d4d8; /* zinc-300 */
-    }
-
-    /* ─── Contact Section ───────────────────────────────────────── */
-    .contact {
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact p {
-      font-size: 1.25rem;
-      color: #a1a1aa;
-      margin-bottom: 2rem;
-      max-width: 36rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
+    /* ─── Contact ─── */
+    .contact { text-align: center; }
+    .contact h2 { font-size: clamp(2rem,5vw,3rem); font-weight: 500; line-height: 1.2; margin-bottom: 1.5rem; }
+    .contact p { font-size: 1.25rem; color: #a1a1aa; margin-bottom: 2rem; max-width: 36rem; margin-left: auto; margin-right: auto; }
     .btn-lg {
-      display: inline-block;
-      padding: 1.25rem 3rem;
-      background-color: #ffffff;
-      color: #000000;
-      font-size: 1.125rem;
-      font-weight: 500;
+      display: inline-block; padding: 1.25rem 3rem;
+      background-color: #ffffff; color: #000000; font-size: 1.125rem; font-weight: 500;
       transition: background-color 0.2s;
     }
+    .btn-lg:hover { background-color: #e4e4e7; }
 
-    .btn-lg:hover {
-      background-color: #e4e4e7;
-    }
-
-    /* ─── Footer ────────────────────────────────────────────────── */
-    footer {
-      padding: 2rem 1.5rem;
-      border-top: 1px solid #27272a;
-    }
-
+    /* ─── Footer ─── */
+    footer { padding: 2rem 1.5rem; border-top: 1px solid #27272a; }
     .footer-inner {
-      max-width: 72rem;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-      text-align: center;
+      max-width: 72rem; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 1rem;
+      align-items: center; text-align: center;
     }
+    @media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
+    .footer-inner p { font-size: 0.875rem; color: #71717a; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.875rem; color: #71717a; transition: color 0.2s; }
+    .footer-links a:hover { color: #ffffff; }
 
-    @media (min-width: 768px) {
-      .footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-      }
-    }
-
-    .footer-inner p {
-      font-size: 0.875rem;
-      color: #71717a; /* zinc-500 */
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      font-size: 0.875rem;
-      color: #71717a;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: #ffffff;
-    }
-
-    /* ─── Icon colors ───────────────────────────────────────────── */
     .icon-orange { color: #fb923c; }
     .icon-blue   { color: #60a5fa; }
     .icon-purple { color: #c084fc; }
@@ -413,15 +170,17 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════
-       NAVIGATION
-  ════════════════════════════════════════ -->
+  <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav>
     <div class="nav-inner">
-      <!-- ✏️ EDIT: Change "TN" to your initials -->
       <div class="nav-logo">TN</div>
       <div class="nav-links">
-        <!-- ✏️ EDIT: Replace href with your LinkedIn URL -->
+        <!-- Language Toggle -->
+        <button class="lang-btn" id="langToggle" aria-label="Cambia lingua" onclick="toggleLang()">
+          <span class="lang-flag" id="langFlag">🇬🇧</span>
+          <span id="langLabel">EN</span>
+        </button>
+
         <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -429,7 +188,6 @@
             <circle cx="4" cy="4" r="2"/>
           </svg>
         </a>
-        <!-- ✏️ EDIT: Replace href with your GitHub URL -->
         <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
@@ -439,195 +197,142 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════
-       HERO
-  ════════════════════════════════════════ -->
+  <!-- ═══════════ HERO ═══════════ -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
-
         <div>
-          <!-- ✏️ EDIT: Change badge text -->
-          <div class="badge">💼 Buscando nuevas oportunidades</div>
-
-          <!-- ✏️ EDIT: Change your title -->
+          <div class="badge" data-i18n="badge">💼 In cerca di nuove opportunità</div>
           <h1>
-            Desarrollador<br />
-            <span class="muted">Full-Stack</span>
+            <span data-i18n="hero-title-1">Sviluppatore</span><br />
+            <span class="muted" data-i18n="hero-title-2">Full-Stack</span>
           </h1>
-
-          <!-- ✏️ EDIT: Change your description -->
-          <p class="hero-desc">
-            Transformo ideas en productos digitales. Especializado en HTML, CSS,
-            WordPress, PHP y MySQL. Enfocado en código limpio y experiencias excepcionales.
+          <p class="hero-desc" data-i18n="hero-desc">
+            Trasformo idee in prodotti digitali. Specializzato in HTML, CSS,
+            WordPress, PHP e MySQL. Focalizzato su codice pulito ed esperienze eccezionali.
           </p>
-
           <div class="btn-group">
-            <!-- ✏️ EDIT: Replace with your email -->
-            <a href="mailto:tu@email.com" class="btn-primary">Contactar</a>
-            <a href="#proyectos" class="btn-secondary">Ver proyectos</a>
+            <a href="mailto:tu@email.com" class="btn-primary" data-i18n="btn-contact">Contattami</a>
+            <a href="#progetti" class="btn-secondary" data-i18n="btn-projects">Vedi progetti</a>
           </div>
         </div>
 
         <div class="hero-image-wrap">
           <div class="hero-image-glow"></div>
-          <!-- ✏️ EDIT: Replace src with your photo URL or a local file path like "foto.jpg" -->
           <img
             src="https://images.unsplash.com/photo-1613759612065-d5971d32ca49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
-            alt="Foto de perfil"
+            alt="Foto profilo"
             loading="eager"
             onerror="this.style.background='#27272a'; this.removeAttribute('src');"
           />
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       STACK TECNOLÓGICO
-  ════════════════════════════════════════ -->
+  <!-- ═══════════ STACK TECNOLOGICO ═══════════ -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Stack Tecnológico</h2>
+      <h2 class="section-title" data-i18n="stack-title">Stack Tecnologico</h2>
       <div class="stack-grid">
-
-        <!-- HTML -->
         <div class="stack-card">
           <svg class="icon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
           </svg>
           <h3>HTML</h3>
-          <p>Estructura semántica</p>
+          <p data-i18n="stack-html">Struttura semantica</p>
         </div>
-
-        <!-- CSS -->
         <div class="stack-card">
           <svg class="icon-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/>
           </svg>
           <h3>CSS</h3>
-          <p>Vanilla, Bootstrap, Tailwind</p>
+          <p data-i18n="stack-css">Vanilla, Bootstrap, Tailwind</p>
         </div>
-
-        <!-- WordPress -->
         <div class="stack-card">
           <svg class="icon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+            <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
           </svg>
           <h3>WordPress</h3>
-          <p>Desarrollo de temas y plugins</p>
+          <p data-i18n="stack-wp">Sviluppo temi e plugin</p>
         </div>
-
-        <!-- PHP & MySQL -->
         <div class="stack-card">
           <svg class="icon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
           </svg>
           <h3>PHP &amp; MySQL</h3>
-          <p>Backend enfocado en WordPress</p>
+          <p data-i18n="stack-php">Backend focalizzato su WordPress</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       PROYECTOS DESTACADOS
-  ════════════════════════════════════════ -->
-  <section id="proyectos" class="section">
+  <!-- ═══════════ PROGETTI IN EVIDENZA ═══════════ -->
+  <section id="progetti" class="section">
     <div class="container">
-      <h2 class="section-title">Proyectos Destacados</h2>
+      <h2 class="section-title" data-i18n="projects-title">Progetti in Evidenza</h2>
       <div class="projects-grid">
-
-        <!-- ✏️ EDIT: Project 1 -->
         <div class="project-card">
           <div class="project-thumb blue"><span>💼</span></div>
           <div class="project-body">
             <h3>SaaS Platform</h3>
-            <p>Plataforma de gestión empresarial con dashboard analytics,
-               autenticación multi-factor y API integrada.</p>
+            <p data-i18n="project1-desc">Piattaforma di gestione aziendale con dashboard analytics, autenticazione multi-fattore e API integrata.</p>
             <div class="tag-list">
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">PostgreSQL</span>
+              <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
             </div>
           </div>
         </div>
-
-        <!-- ✏️ EDIT: Project 2 -->
         <div class="project-card">
           <div class="project-thumb green"><span>🛒</span></div>
           <div class="project-body">
             <h3>E-Commerce Store</h3>
-            <p>Tienda online completa con carrito, checkout, pagos con Stripe
-               y panel de administración.</p>
+            <p data-i18n="project2-desc">Negozio online completo con carrello, checkout, pagamenti con Stripe e pannello di amministrazione.</p>
             <div class="tag-list">
-              <span class="tag">WordPress</span>
-              <span class="tag">WooCommerce</span>
-              <span class="tag">PHP</span>
+              <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span>
             </div>
           </div>
         </div>
-
-        <!-- ✏️ EDIT: Project 3 -->
         <div class="project-card">
           <div class="project-thumb orange"><span>📱</span></div>
           <div class="project-body">
-            <h3>Landing Corporativa</h3>
-            <p>Sitio web corporativo con diseño responsivo, formulario de contacto
-               y optimización SEO avanzada.</p>
+            <h3 data-i18n="project3-title">Landing Aziendale</h3>
+            <p data-i18n="project3-desc">Sito web aziendale con design responsivo, form di contatto e ottimizzazione SEO avanzata.</p>
             <div class="tag-list">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">WordPress</span>
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">WordPress</span>
             </div>
           </div>
         </div>
-
-        <!-- ✏️ EDIT: Project 4 -->
         <div class="project-card">
           <div class="project-thumb purple"><span>📊</span></div>
           <div class="project-body">
-            <h3>Plugin WordPress</h3>
-            <p>Plugin personalizado para gestión de reservas con panel de administración
-               y base de datos MySQL.</p>
+            <h3 data-i18n="project4-title">Plugin WordPress</h3>
+            <p data-i18n="project4-desc">Plugin personalizzato per la gestione delle prenotazioni con pannello di amministrazione e database MySQL.</p>
             <div class="tag-list">
-              <span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">WordPress API</span>
+              <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">WordPress API</span>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       CONTACTO
-  ════════════════════════════════════════ -->
+  <!-- ═══════════ CONTATTI ═══════════ -->
   <section class="section contact">
     <div class="container">
-      <!-- ✏️ EDIT: Change contact heading -->
-      <h2>¿Tienes un proyecto<br />en mente?</h2>
-      <!-- ✏️ EDIT: Change contact description -->
-      <p>Estoy disponible para proyectos freelance, colaboraciones y
-         oportunidades de trabajo remoto.</p>
-      <!-- ✏️ EDIT: Replace with your email -->
-      <a href="mailto:tu@email.com" class="btn-lg">Hablemos</a>
+      <h2 data-i18n="contact-title">Hai un progetto<br />in mente?</h2>
+      <p data-i18n="contact-desc">Sono disponibile per progetti freelance, collaborazioni e opportunità di lavoro da remoto.</p>
+      <a href="mailto:tu@email.com" class="btn-lg" data-i18n="contact-btn">Parliamone</a>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════ -->
+  <!-- ═══════════ FOOTER ═══════════ -->
   <footer>
     <div class="footer-inner">
-      <!-- ✏️ EDIT: Change your name and year -->
-      <p>© 2026 Tu Nombre. Todos los derechos reservados.</p>
+      <p data-i18n="footer-copy">© 2026 Il Tuo Nome. Tutti i diritti riservati.</p>
       <div class="footer-links">
-        <!-- ✏️ EDIT: Update all three links below -->
         <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="mailto:tu@email.com">Email</a>
@@ -635,5 +340,104 @@
     </div>
   </footer>
 
+  <script>
+    const translations = {
+      it: {
+        "page-title":      "Il Tuo Nome — Sviluppatore Full-Stack",
+        "badge":           "💼 In cerca di nuove opportunità",
+        "hero-title-1":    "Sviluppatore",
+        "hero-title-2":    "Full-Stack",
+        "hero-desc":       "Trasformo idee in prodotti digitali. Specializzato in HTML, CSS, WordPress, PHP e MySQL. Focalizzato su codice pulito ed esperienze eccezionali.",
+        "btn-contact":     "Contattami",
+        "btn-projects":    "Vedi progetti",
+        "stack-title":     "Stack Tecnologico",
+        "stack-html":      "Struttura semantica",
+        "stack-css":       "Vanilla, Bootstrap, Tailwind",
+        "stack-wp":        "Sviluppo temi e plugin",
+        "stack-php":       "Backend focalizzato su WordPress",
+        "projects-title":  "Progetti in Evidenza",
+        "project1-desc":   "Piattaforma di gestione aziendale con dashboard analytics, autenticazione multi-fattore e API integrata.",
+        "project2-desc":   "Negozio online completo con carrello, checkout, pagamenti con Stripe e pannello di amministrazione.",
+        "project3-title":  "Landing Aziendale",
+        "project3-desc":   "Sito web aziendale con design responsivo, form di contatto e ottimizzazione SEO avanzata.",
+        "project4-title":  "Plugin WordPress",
+        "project4-desc":   "Plugin personalizzato per la gestione delle prenotazioni con pannello di amministrazione e database MySQL.",
+        "contact-title":   "Hai un progetto<br />in mente?",
+        "contact-desc":    "Sono disponibile per progetti freelance, collaborazioni e opportunità di lavoro da remoto.",
+        "contact-btn":     "Parliamone",
+        "footer-copy":     "© 2026 Il Tuo Nome. Tutti i diritti riservati.",
+        "section-projects-id": "progetti"
+      },
+      en: {
+        "page-title":      "Your Name — Full-Stack Developer",
+        "badge":           "💼 Open to new opportunities",
+        "hero-title-1":    "Full-Stack",
+        "hero-title-2":    "Developer",
+        "hero-desc":       "I turn ideas into digital products. Specialized in HTML, CSS, WordPress, PHP and MySQL. Focused on clean code and outstanding experiences.",
+        "btn-contact":     "Get in touch",
+        "btn-projects":    "View projects",
+        "stack-title":     "Tech Stack",
+        "stack-html":      "Semantic structure",
+        "stack-css":       "Vanilla, Bootstrap, Tailwind",
+        "stack-wp":        "Theme & plugin development",
+        "stack-php":       "WordPress-focused backend",
+        "projects-title":  "Featured Projects",
+        "project1-desc":   "Enterprise management platform with analytics dashboard, multi-factor authentication and integrated API.",
+        "project2-desc":   "Full-featured online store with cart, checkout, Stripe payments and admin panel.",
+        "project3-title":  "Corporate Landing",
+        "project3-desc":   "Corporate website with responsive design, contact form and advanced SEO optimization.",
+        "project4-title":  "WordPress Plugin",
+        "project4-desc":   "Custom booking management plugin with admin panel and MySQL database.",
+        "contact-title":   "Got a project<br />in mind?",
+        "contact-desc":    "I'm available for freelance projects, collaborations and remote work opportunities.",
+        "contact-btn":     "Let's talk",
+        "footer-copy":     "© 2026 Your Name. All rights reserved.",
+        "section-projects-id": "projects"
+      }
+    };
+
+    let currentLang = 'it';
+
+    function applyLang(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          el.innerHTML = t[key];
+        }
+      });
+
+      // Update page title
+      document.title = t['page-title'];
+
+      // Update anchor href for projects button
+      const projBtn = document.querySelector('[data-i18n="btn-projects"]');
+      if (projBtn) {
+        projBtn.setAttribute('href', '#' + (lang === 'it' ? 'progetti' : 'projects'));
+      }
+
+      // Update section id
+      const projSection = document.getElementById('progetti') || document.getElementById('projects');
+      if (projSection) {
+        projSection.id = lang === 'it' ? 'progetti' : 'projects';
+      }
+
+      // Update toggle button
+      document.getElementById('langFlag').textContent = lang === 'it' ? '🇬🇧' : '🇮🇹';
+      document.getElementById('langLabel').textContent = lang === 'it' ? 'EN' : 'IT';
+      document.getElementById('langToggle').setAttribute('aria-label', lang === 'it' ? 'Switch to English' : 'Passa all\'italiano');
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'it' ? 'en' : 'it';
+      applyLang(currentLang);
+    }
+
+    // Init with Italian
+    applyLang('it');
+  </script>
 </body>
 </html>
