@@ -3,54 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrea Polverino — Analista Funzionale</title>
+  <title data-i18n="page-title">Il Tuo Nome — Sviluppatore Full-Stack</title>
+  <meta name="description" content="Portfolio di sviluppo web full-stack. Specializzato in HTML, CSS, WordPress, PHP e MySQL." />
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-	  /* ─── CERT MODAL ─── */
-	.cert-modal-overlay {
-	  display: none; position: fixed; inset: 0; z-index: 300;
-	  background: rgba(0,0,0,0.8); backdrop-filter: blur(4px);
-	  align-items: center; justify-content: center; padding: 1rem;
-	}
-	.cert-modal-overlay.open { display: flex; }
-	.cert-modal {
-	  background: #1c1c1f; border: 1px solid #3f3f46; border-radius: 0.75rem;
-	  max-width: 520px; width: 100%; position: relative; padding: 2rem;
-	  animation: modalIn 0.22s cubic-bezier(0.16,1,0.3,1);
-	}
-	.cert-modal h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; }
-	.cert-item {
-	  display: flex; align-items: flex-start; gap: 1rem;
-	  padding: 1rem 0; border-bottom: 1px solid #27272a;
-	}
-	.cert-item:last-child { border-bottom: none; }
-	.cert-badge {
-	  width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
-	  display: flex; align-items: center; justify-content: center;
-	  font-size: 1.3rem; background: #27272a; border: 1px solid #3f3f46;
-	}
-	.cert-info { flex: 1; }
-	.cert-name { font-size: 0.9rem; font-weight: 600; color: #ffffff; line-height: 1.3; margin-bottom: 0.25rem; }
-	.cert-meta { font-size: 0.78rem; color: #71717a; }
-	.cert-year {
-	  font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem;
-	  border-radius: 9999px; background: #27272a; border: 1px solid #3f3f46;
-	  color: #a1a1aa; white-space: nowrap; align-self: center;
-	}
-	.stack-card.clickable { cursor: pointer; }
-	.stack-card.clickable:hover { border-color: #62D84E44; }
-	.cert-hint {
-	  font-size: 0.72rem; color: #52525b; margin-top: 0.35rem;
-	  display: flex; align-items: center; gap: 0.3rem;
-	}
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; scroll-behavior: smooth; }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
       background-color: #18181b;
       color: #ffffff;
       line-height: 1.6;
@@ -58,61 +24,68 @@
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+
     .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
 
-    /* ─── NAV ─── */
+    /* ─── Navigation ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      background-color: rgba(24,24,27,0.88);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(24,24,27,0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid #27272a;
     }
     .nav-inner {
       display: flex; justify-content: space-between; align-items: center;
       padding: 1rem 1.5rem; max-width: 72rem; margin: 0 auto;
     }
-    .nav-logo { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.05em; }
-    .nav-links { display: flex; gap: 1.25rem; align-items: center; }
+    .nav-logo { font-size: 1.25rem; font-weight: 500; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-links a { color: #ffffff; transition: color 0.2s; }
     .nav-links a:hover { color: #a1a1aa; }
-    .nav-links svg { width: 1.2rem; height: 1.2rem; }
+    .nav-links svg { width: 1.25rem; height: 1.25rem; }
 
+    /* ─── Language Toggle Button ─── */
     .lang-btn {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      padding: 0.3rem 0.8rem; border: 1px solid #3f3f46; border-radius: 9999px;
-      background: transparent; color: #a1a1aa;
-      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
-      cursor: pointer; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid #3f3f46;
+      border-radius: 9999px;
+      background: transparent;
+      color: #a1a1aa;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
       transition: border-color 0.2s, color 0.2s, background 0.2s;
-      font-family: inherit;
+      text-transform: uppercase;
     }
-    .lang-btn:hover { border-color: #71717a; color: #fff; background: #27272a; }
-    .lang-flag { font-size: 0.95rem; line-height: 1; }
+    .lang-btn:hover { border-color: #71717a; color: #ffffff; background: #27272a; }
+    .lang-btn .lang-flag { font-size: 1rem; line-height: 1; }
 
-    /* ─── HERO ─── */
-    .hero { padding: 8rem 1.5rem 5rem; }
+    /* ─── Hero ─── */
+    .hero { padding-top: 8rem; padding-bottom: 5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
     .hero-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
     @media (min-width: 768px) { .hero-grid { grid-template-columns: 7fr 5fr; } }
 
     .badge {
-      display: inline-block; padding: 0.45rem 1rem;
+      display: inline-block; padding: 0.5rem 1rem;
       background-color: #27272a; border-radius: 9999px;
       font-size: 0.875rem; margin-bottom: 1.5rem;
     }
-    .hero h1 { font-size: clamp(2.5rem,8vw,4.5rem); font-weight: 500; line-height: 1.1; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 500; line-height: 1.1; margin-bottom: 1.5rem; }
     .hero h1 .muted { color: #71717a; }
-    .hero-desc { font-size: 1.1rem; color: #a1a1aa; margin-bottom: 2rem; max-width: 36rem; line-height: 1.75; }
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-desc { font-size: 1.25rem; color: #a1a1aa; margin-bottom: 2rem; max-width: 36rem; line-height: 1.7; }
 
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
-      display: inline-block; padding: 0.9rem 1.8rem;
+      display: inline-block; padding: 1rem 2rem;
       background-color: #ffffff; color: #000000; font-weight: 500;
-      transition: background-color 0.2s; cursor: pointer; font-family: inherit;
+      transition: background-color 0.2s; cursor: pointer;
     }
     .btn-primary:hover { background-color: #e4e4e7; }
     .btn-secondary {
-      display: inline-block; padding: 0.9rem 1.8rem;
+      display: inline-block; padding: 1rem 2rem;
       border: 1px solid #3f3f46; color: #ffffff; font-weight: 500;
       transition: border-color 0.2s; cursor: pointer;
     }
@@ -121,158 +94,62 @@
     .hero-image-wrap { position: relative; }
     .hero-image-glow {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(168,85,247,0.18));
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(168,85,247,0.2));
       filter: blur(48px); border-radius: 0.5rem;
     }
     .hero-image-wrap img {
-      position: relative; width: 100%; aspect-ratio: 1/1;
-      object-fit: cover; border: 1px solid #27272a;
+      position: relative; width: 100%; aspect-ratio: 1/1; object-fit: cover;
+      border: 1px solid #27272a;
     }
 
-    /* ─── SECTIONS ─── */
+    /* ─── Section Base ─── */
     .section { padding: 5rem 1.5rem; border-top: 1px solid #27272a; }
     .section-title { font-size: 1.875rem; font-weight: 500; margin-bottom: 3rem; }
 
-    /* ─── STACK ─── */
+    /* ─── Stack ─── */
     .stack-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
     @media (min-width: 768px) { .stack-grid { grid-template-columns: repeat(4,1fr); } }
     .stack-card {
-      padding: 1.5rem; background-color: #27272a;
-      border: 1px solid #3f3f46; transition: border-color 0.2s;
+      padding: 1.5rem; background-color: #27272a; border: 1px solid #3f3f46;
+      transition: border-color 0.2s;
     }
     .stack-card:hover { border-color: #52525b; }
     .stack-card svg { width: 2rem; height: 2rem; margin-bottom: 1rem; }
-    .stack-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; }
+    .stack-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
     .stack-card p { font-size: 0.875rem; color: #a1a1aa; }
-	.stack-logo-wrap {
-	height: 2.5rem;
-	display: flex;
-	align-items: center;
-	margin-bottom: 1rem;
-	}
-	.stack-logo {
-	max-height: 2.2rem;
-	width: auto;
-	max-width: 140px;
-	object-fit: contain;
-	filter: brightness(0) invert(1);
-	opacity: 0.85;
-	}
-	.stack-logo-itil {
-	filter: none;
-	opacity: 1;
-	max-height: 2.5rem;
-	}
-    .icon-orange { color: #fb923c; }
-    .icon-blue   { color: #60a5fa; }
-    .icon-purple { color: #c084fc; }
-    .icon-green  { color: #4ade80; }
 
-    /* ─── PROJECTS ─── */
-    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-    @media (min-width: 640px)  { .projects-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3,1fr); } }
-
+    /* ─── Projects ─── */
+    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    @media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2,1fr); } }
     .project-card {
       background-color: #27272a; border: 1px solid #3f3f46;
-      overflow: hidden; cursor: pointer;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-      display: flex; flex-direction: column;
+      overflow: hidden; transition: border-color 0.2s;
     }
-    .project-card:hover {
-      border-color: #52525b;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-    .project-thumb {
-      height: 9rem; display: flex; align-items: center;
-      justify-content: center; position: relative;
-    }
-    .project-thumb span { font-size: 2.5rem; opacity: 0.6; }
+    .project-card:hover { border-color: #52525b; }
+    .project-thumb { height: 12rem; display: flex; align-items: center; justify-content: center; }
+    .project-thumb span { font-size: 3.75rem; opacity: 0.5; }
+    .project-thumb.blue   { background: linear-gradient(135deg, rgba(37,99,235,0.2),  rgba(147,51,234,0.2)); }
+    .project-thumb.green  { background: linear-gradient(135deg, rgba(22,163,74,0.2),  rgba(13,148,136,0.2)); }
+    .project-thumb.orange { background: linear-gradient(135deg, rgba(234,88,12,0.2),  rgba(220,38,38,0.2)); }
+    .project-thumb.purple { background: linear-gradient(135deg, rgba(147,51,234,0.2), rgba(219,39,119,0.2)); }
+    .project-body { padding: 1.5rem; }
+    .project-body h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.75rem; }
+    .project-body p { color: #a1a1aa; margin-bottom: 1rem; line-height: 1.6; }
+    .tag-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag { font-size: 0.75rem; padding: 0.25rem 0.75rem; background-color: #3f3f46; color: #d4d4d8; }
 
-    /* Platform badge on thumb */
-    .platform-badge {
-      position: absolute; top: 0.75rem; right: 0.75rem;
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.07em;
-      text-transform: uppercase; padding: 0.2rem 0.55rem;
-      border-radius: 4px; background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(4px); color: #e4e4e7;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .project-thumb.snow  { background: linear-gradient(135deg, rgba(0,140,186,0.25), rgba(0,100,140,0.35)); }
-    .project-thumb.remedy{ background: linear-gradient(135deg, rgba(180,60,20,0.25), rgba(220,100,30,0.35)); }
-    .project-thumb.assess{ background: linear-gradient(135deg, rgba(80,160,80,0.25), rgba(30,120,100,0.35)); }
-    .project-thumb.catalog{ background: linear-gradient(135deg, rgba(120,80,200,0.25), rgba(180,40,140,0.35)); }
-
-    .project-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-    .project-body h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.3; }
-    .project-body p { color: #a1a1aa; margin-bottom: 1rem; line-height: 1.6; font-size: 0.9rem; flex: 1; }
-
-    .tag-list { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-    .tag { font-size: 0.7rem; padding: 0.2rem 0.6rem; background-color: #3f3f46; color: #d4d4d8; border-radius: 3px; }
-
-    .card-cta {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      margin-top: 1rem; font-size: 0.82rem; color: #71717a;
-      transition: color 0.2s;
-    }
-    .project-card:hover .card-cta { color: #a1a1aa; }
-
-    /* ─── MODAL ─── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 200;
-      background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
-      align-items: center; justify-content: center;
-      padding: 1rem;
-    }
-    .modal-overlay.open { display: flex; }
-
-    .modal {
-      background: #1c1c1f; border: 1px solid #3f3f46;
-      border-radius: 0.75rem; max-width: 680px; width: 100%;
-      max-height: 90vh; overflow-y: auto;
-      position: relative; padding: 2rem;
-      animation: modalIn 0.22s cubic-bezier(0.16,1,0.3,1);
-    }
-    @keyframes modalIn {
-      from { opacity: 0; transform: translateY(16px) scale(0.97); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: #27272a; border: none; border-radius: 50%;
-      width: 32px; height: 32px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: #a1a1aa; transition: background 0.2s, color 0.2s; font-family: inherit;
-    }
-    .modal-close:hover { background: #3f3f46; color: #fff; }
-
-    .modal-platform {
-      display: inline-block; font-size: 0.7rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      padding: 0.2rem 0.65rem; border-radius: 4px;
-      background: #3f3f46; color: #a1a1aa; margin-bottom: 0.75rem;
-    }
-    .modal h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; line-height: 1.3; }
-    .modal-body { color: #a1a1aa; line-height: 1.75; font-size: 0.95rem; }
-    .modal-body p { margin-bottom: 0.85rem; max-width: none; }
-    .modal-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #27272a; }
-
-    /* ─── CONTACT ─── */
+    /* ─── Contact ─── */
     .contact { text-align: center; }
     .contact h2 { font-size: clamp(2rem,5vw,3rem); font-weight: 500; line-height: 1.2; margin-bottom: 1.5rem; }
-    .contact p { font-size: 1.1rem; color: #a1a1aa; margin-bottom: 2rem; max-width: 36rem; margin-left: auto; margin-right: auto; }
+    .contact p { font-size: 1.25rem; color: #a1a1aa; margin-bottom: 2rem; max-width: 36rem; margin-left: auto; margin-right: auto; }
     .btn-lg {
-      display: inline-block; padding: 1.1rem 3rem;
-      background-color: #ffffff; color: #000000;
-      font-size: 1.05rem; font-weight: 500;
-      transition: background-color 0.2s; font-family: inherit;
+      display: inline-block; padding: 1.25rem 3rem;
+      background-color: #ffffff; color: #000000; font-size: 1.125rem; font-weight: 500;
+      transition: background-color 0.2s;
     }
     .btn-lg:hover { background-color: #e4e4e7; }
 
-    /* ─── FOOTER ─── */
+    /* ─── Footer ─── */
     footer { padding: 2rem 1.5rem; border-top: 1px solid #27272a; }
     .footer-inner {
       max-width: 72rem; margin: 0 auto;
@@ -284,53 +161,68 @@
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: 0.875rem; color: #71717a; transition: color 0.2s; }
     .footer-links a:hover { color: #ffffff; }
+
+    .icon-orange { color: #fb923c; }
+    .icon-blue   { color: #60a5fa; }
+    .icon-purple { color: #c084fc; }
+    .icon-green  { color: #4ade80; }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav>
     <div class="nav-inner">
-      <div class="nav-logo">AP</div>
+      <div class="nav-logo">TN</div>
       <div class="nav-links">
-        <button class="lang-btn" id="langToggle" onclick="toggleLang()" aria-label="Cambia lingua">
+        <!-- Language Toggle -->
+        <button class="lang-btn" id="langToggle" aria-label="Cambia lingua" onclick="toggleLang()">
           <span class="lang-flag" id="langFlag">🇬🇧</span>
           <span id="langLabel">EN</span>
         </button>
-        <a href="https://linkedin.com/in/andreapolverino" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+
+        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
             <rect x="2" y="9" width="4" height="12"/>
             <circle cx="4" cy="4" r="2"/>
           </svg>
         </a>
+        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ═══════════ HERO ═══════════ -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="badge" data-i18n="badge">💼 Disponibile per nuovi progetti</div>
+          <div class="badge" data-i18n="badge">💼 In cerca di nuove opportunità</div>
           <h1>
-            <span data-i18n="hero-title-1">Analista</span><br />
-            <span class="muted" data-i18n="hero-title-2">Funzionale</span>
+            <span data-i18n="hero-title-1">Sviluppatore</span><br />
+            <span class="muted" data-i18n="hero-title-2">Full-Stack</span>
           </h1>
           <p class="hero-desc" data-i18n="hero-desc">
-            Analista funzionale con esperienza su ServiceNow e processi ITIL, trasformo esigenze di business in soluzioni concrete, seguendo i progetti dalla progettazione all'implementazione.
+            Trasformo idee in prodotti digitali. Specializzato in HTML, CSS,
+            WordPress, PHP e MySQL. Focalizzato su codice pulito ed esperienze eccezionali.
           </p>
           <div class="btn-group">
-            <a href="mailto:andreapolverino25@gmail.com" class="btn-primary" data-i18n="btn-contact">Contattami</a>
+            <a href="mailto:tu@email.com" class="btn-primary" data-i18n="btn-contact">Contattami</a>
             <a href="#progetti" class="btn-secondary" data-i18n="btn-projects">Vedi progetti</a>
           </div>
         </div>
+
         <div class="hero-image-wrap">
           <div class="hero-image-glow"></div>
           <img
             src="https://images.unsplash.com/photo-1613759612065-d5971d32ca49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
-            alt="Foto profilo" loading="eager"
+            alt="Foto profilo"
+            loading="eager"
             onerror="this.style.background='#27272a'; this.removeAttribute('src');"
           />
         </div>
@@ -338,37 +230,32 @@
     </div>
   </section>
 
-  <!-- STACK -->
+  <!-- ═══════════ STACK TECNOLOGICO ═══════════ -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title" data-i18n="stack-title">Tecnologie Usate</h2>
-      <div class="stack-card clickable" onclick="openCertModal()" style="cursor:pointer">
-	  <div class="stack-logo-wrap">
-	    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/ServiceNow_logo.svg"
-	         alt="ServiceNow" class="stack-logo" />
-	  </div>
-	  <h3>ServiceNow</h3>
-	  <p data-i18n="stack-snow">3 Certificazioni</p>
-	  <p class="cert-hint">
-	    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-	    Clicca per vedere
-	  </p>
-	</div>
+      <h2 class="section-title" data-i18n="stack-title">Stack Tecnologico</h2>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <svg class="icon-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          <h3>HTML</h3>
+          <p data-i18n="stack-html">Struttura semantica</p>
         </div>
         <div class="stack-card">
-			<div class="stack-logo-wrap">
-			  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/BMC_Software_logo_%282014%29.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
-				   alt="BMC Software" class="stack-logo" />
-			</div>
-          <h3>BMC Remedy</h3>
-          <p data-i18n="stack-remedy">Innovation Studio, Remedy Developer Studio</p>
+          <svg class="icon-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/>
+          </svg>
+          <h3>CSS</h3>
+          <p data-i18n="stack-css">Vanilla, Bootstrap, Tailwind</p>
         </div>
         <div class="stack-card">
           <svg class="icon-purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+            <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
           </svg>
-          <h3>ITIL / Process</h3>
-          <p data-i18n="stack-itil">Change, Problem, Knowledge</p>
+          <h3>WordPress</h3>
+          <p data-i18n="stack-wp">Sviluppo temi e plugin</p>
         </div>
         <div class="stack-card">
           <svg class="icon-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -376,386 +263,181 @@
             <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
             <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
           </svg>
-          <h3>SQL / ETL</h3>
-          <p data-i18n="stack-sql">Conoscenza avanzata delle Query</p>
+          <h3>PHP &amp; MySQL</h3>
+          <p data-i18n="stack-php">Backend focalizzato su WordPress</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROGETTI -->
+  <!-- ═══════════ PROGETTI IN EVIDENZA ═══════════ -->
   <section id="progetti" class="section">
     <div class="container">
       <h2 class="section-title" data-i18n="projects-title">Progetti in Evidenza</h2>
-      <div class="projects-grid" id="projectsGrid"></div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-thumb blue"><span>💼</span></div>
+          <div class="project-body">
+            <h3>SaaS Platform</h3>
+            <p data-i18n="project1-desc">Piattaforma di gestione aziendale con dashboard analytics, autenticazione multi-fattore e API integrata.</p>
+            <div class="tag-list">
+              <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb green"><span>🛒</span></div>
+          <div class="project-body">
+            <h3>E-Commerce Store</h3>
+            <p data-i18n="project2-desc">Negozio online completo con carrello, checkout, pagamenti con Stripe e pannello di amministrazione.</p>
+            <div class="tag-list">
+              <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb orange"><span>📱</span></div>
+          <div class="project-body">
+            <h3 data-i18n="project3-title">Landing Aziendale</h3>
+            <p data-i18n="project3-desc">Sito web aziendale con design responsivo, form di contatto e ottimizzazione SEO avanzata.</p>
+            <div class="tag-list">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">WordPress</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb purple"><span>📊</span></div>
+          <div class="project-body">
+            <h3 data-i18n="project4-title">Plugin WordPress</h3>
+            <p data-i18n="project4-desc">Plugin personalizzato per la gestione delle prenotazioni con pannello di amministrazione e database MySQL.</p>
+            <div class="tag-list">
+              <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">WordPress API</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ═══════════ CONTATTI ═══════════ -->
   <section class="section contact">
     <div class="container">
       <h2 data-i18n="contact-title">Hai un progetto<br />in mente?</h2>
-      <p data-i18n="contact-desc">Sono disponibile per progetti, collaborazioni e opportunità di lavoro da remoto.</p>
-      <a href="mailto:andreapolverino25@gmail.com" class="btn-lg" data-i18n="contact-btn">Parliamone</a>
+      <p data-i18n="contact-desc">Sono disponibile per progetti freelance, collaborazioni e opportunità di lavoro da remoto.</p>
+      <a href="mailto:tu@email.com" class="btn-lg" data-i18n="contact-btn">Parliamone</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ═══════════ FOOTER ═══════════ -->
   <footer>
     <div class="footer-inner">
-      <p data-i18n="footer-copy">© 2026 Andrea Polverino. Tutti i diritti riservati.</p>
+      <p data-i18n="footer-copy">© 2026 Il Tuo Nome. Tutti i diritti riservati.</p>
       <div class="footer-links">
-        <a href="https://linkedin.com/in/andreapolverino" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:andreapolverino25@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:tu@email.com">Email</a>
       </div>
     </div>
   </footer>
 
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal" id="modalBox">
-      <button class="modal-close" id="modalClose" aria-label="Chiudi">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-          <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
-        </svg>
-      </button>
-      <div id="modalPlatform" class="modal-platform"></div>
-      <h2 id="modalTitle"></h2>
-      <div class="modal-body" id="modalBody"></div>
-      <div class="modal-tags" id="modalTags"></div>
-    </div>
-  </div>
-	<!-- CERT MODAL -->
-<div class="cert-modal-overlay" id="certModalOverlay">
-  <div class="cert-modal">
-    <button class="modal-close" onclick="closeCertModal()" aria-label="Chiudi">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-        <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
-      </svg>
-    </button>
-    <h2>🏅 ServiceNow Certifications</h2>
-    <div class="cert-item">
-      <div class="cert-badge">⚙️</div>
-      <div class="cert-info">
-        <div class="cert-name">Certified System Administrator (CSA)</div>
-        <div class="cert-meta">ServiceNow</div>
-      </div>
-      <span class="cert-year">2023</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-badge">🛠️</div>
-      <div class="cert-info">
-        <div class="cert-name">CIS – IT Service Management (CIS-ITSM)</div>
-        <div class="cert-meta">Certified Implementation Specialist</div>
-      </div>
-      <span class="cert-year">2024</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-badge">🗄️</div>
-      <div class="cert-info">
-        <div class="cert-name">CIS – Data Foundation (CIS-DF)</div>
-        <div class="cert-meta">Certified Implementation Specialist</div>
-      </div>
-      <span class="cert-year">2026</span>
-    </div>
-  </div>
-</div>
   <script>
-  /* ═══════════════════════════════════════════
-     PROJECT DATA
-  ═══════════════════════════════════════════ */
-  const projects = [
-    {
-      id: 1,
-      emoji: "📚",
-      thumbClass: "snow",
-      platform: "ServiceNow",
-      tags: ["Knowledge Module","Flow Designer","ITIL","User Criteria","Agile / Scrum"],
+    const translations = {
       it: {
-        title: "Knowledge Management – ServiceNow",
-        short: "Creazione di una Knowledge Base centralizzata: raccolta requisiti, use case, configurazione modulo, regole di pubblicazione e automazione approvazioni.",
-        full: `<p>Il Contesto: Il cliente aveva la necessità di strutturare e centralizzare il proprio patrimonio informativo per ridurre i tempi di risoluzione dei ticket e favorire il self-service degli utenti.</p>
-               <p>Il Mio Contributo: Ho guidato la fase di raccolta requisiti attraverso workshop mirati con gli stakeholder, adottando un approccio Agile. Mi sono occupato della configurazione end-to-end del modulo Knowledge Management: ho definito i ruoli, i permessi e gli User Criteria per garantire che i contenuti giusti fossero visibili alle persone giuste. Inoltre, ho automatizzato l'intero ciclo di vita degli articoli (dalla stesura, alla revisione, fino alla pubblicazione e archiviazione) sviluppando flussi personalizzati tramite Flow Designer.</p>
-			   <p>L'Impatto: Il rilascio ha garantito al cliente una piattaforma organizzata e sicura, migliorando l'efficienza del team IT e fornendo un processo di approvazione tracciabile e standardizzato.</p>`  
+        "page-title":      "Il Tuo Nome — Sviluppatore Full-Stack",
+        "badge":           "💼 In cerca di nuove opportunità",
+        "hero-title-1":    "Sviluppatore",
+        "hero-title-2":    "Full-Stack",
+        "hero-desc":       "Trasformo idee in prodotti digitali. Specializzato in HTML, CSS, WordPress, PHP e MySQL. Focalizzato su codice pulito ed esperienze eccezionali.",
+        "btn-contact":     "Contattami",
+        "btn-projects":    "Vedi progetti",
+        "stack-title":     "Stack Tecnologico",
+        "stack-html":      "Struttura semantica",
+        "stack-css":       "Vanilla, Bootstrap, Tailwind",
+        "stack-wp":        "Sviluppo temi e plugin",
+        "stack-php":       "Backend focalizzato su WordPress",
+        "projects-title":  "Progetti in Evidenza",
+        "project1-desc":   "Piattaforma di gestione aziendale con dashboard analytics, autenticazione multi-fattore e API integrata.",
+        "project2-desc":   "Negozio online completo con carrello, checkout, pagamenti con Stripe e pannello di amministrazione.",
+        "project3-title":  "Landing Aziendale",
+        "project3-desc":   "Sito web aziendale con design responsivo, form di contatto e ottimizzazione SEO avanzata.",
+        "project4-title":  "Plugin WordPress",
+        "project4-desc":   "Plugin personalizzato per la gestione delle prenotazioni con pannello di amministrazione e database MySQL.",
+        "contact-title":   "Hai un progetto<br />in mente?",
+        "contact-desc":    "Sono disponibile per progetti freelance, collaborazioni e opportunità di lavoro da remoto.",
+        "contact-btn":     "Parliamone",
+        "footer-copy":     "© 2026 Il Tuo Nome. Tutti i diritti riservati.",
+        "section-projects-id": "progetti"
       },
       en: {
-        title: "Knowledge Management – ServiceNow",
-        short: "Creation of a centralised Knowledge Base: requirements gathering, use case definition, module configuration, publication rules and approval automation.",
-        full: `<p>The Context: The client needed to structure and centralize their knowledge base to reduce ticket resolution times and encourage self-service among users.</p>
-               <p>My Contribution: I led the requirements gathering phase through targeted workshops with stakeholders using an Agile approach. I handled the end-to-end configuration of the Knowledge Management module: defining roles, permissions, and User Criteria to ensure the right content was visible to the right audiences. Additionally, I automated the entire article lifecycle (drafting, review, publishing, and archiving) by developing custom workflows via Flow Designer.</p>
-			   <p>The Impact: The release provided the client with an organized and secure platform, improving IT team efficiency and delivering a traceable, standardized approval process.</p>`  
+        "page-title":      "Your Name — Full-Stack Developer",
+        "badge":           "💼 Open to new opportunities",
+        "hero-title-1":    "Full-Stack",
+        "hero-title-2":    "Developer",
+        "hero-desc":       "I turn ideas into digital products. Specialized in HTML, CSS, WordPress, PHP and MySQL. Focused on clean code and outstanding experiences.",
+        "btn-contact":     "Get in touch",
+        "btn-projects":    "View projects",
+        "stack-title":     "Tech Stack",
+        "stack-html":      "Semantic structure",
+        "stack-css":       "Vanilla, Bootstrap, Tailwind",
+        "stack-wp":        "Theme & plugin development",
+        "stack-php":       "WordPress-focused backend",
+        "projects-title":  "Featured Projects",
+        "project1-desc":   "Enterprise management platform with analytics dashboard, multi-factor authentication and integrated API.",
+        "project2-desc":   "Full-featured online store with cart, checkout, Stripe payments and admin panel.",
+        "project3-title":  "Corporate Landing",
+        "project3-desc":   "Corporate website with responsive design, contact form and advanced SEO optimization.",
+        "project4-title":  "WordPress Plugin",
+        "project4-desc":   "Custom booking management plugin with admin panel and MySQL database.",
+        "contact-title":   "Got a project<br />in mind?",
+        "contact-desc":    "I'm available for freelance projects, collaborations and remote work opportunities.",
+        "contact-btn":     "Let's talk",
+        "footer-copy":     "© 2026 Your Name. All rights reserved.",
+        "section-projects-id": "projects"
       }
-    },
-    {
-      id: 2,
-      emoji: "🔍",
-      thumbClass: "snow",
-      platform: "ServiceNow",
-      tags: ["Problem Management","Flow Designer","ITIL","Incident","Change","Agile / Scrum"],
-      it: {
-        title: "Problem Management – ServiceNow",
-        short: "Configurazione completa del modulo Problem Management in ottica ITIL: processo end-to-end dalla rilevazione al known error, con flussi per collegare Incident, Problem e Change.",
-        full: `<p>Il Contesto: Il cliente necessitava di un processo strutturato per identificare le cause alla radice (Root Cause) degli incidenti ricorrenti e gestire i Known Error in linea con le best practice ITIL.</p>
-               <p>Il Mio Contributo: Partendo dall'analisi dei processi "As-Is", ho disegnato e configurato il nuovo modello target sul modulo Problem Management di ServiceNow. Ho personalizzato i layout (campi e stati del ciclo di vita) e definito le regole operative. Tramite Flow Designer, ho creato automazioni per collegare in modo logico e strutturato i record di Incident, Problem e Change, facilitando il passaggio di informazioni tra i diversi team.</p>
-			   <p>L'Impatto: Transizione da un approccio reattivo a uno proattivo, garantendo agli operatori flussi chiari per la risoluzione definitiva dei problemi e riducendo il tempo speso in task manuali ripetitivi.</p>`  
-      },
-      en: {
-        title: "Problem Management – ServiceNow",
-        short: "Full configuration of the Problem Management module following ITIL: end-to-end process from detection to known error, with flows linking Incident, Problem and Change.",
-        full: `<p>The Context: The client required a structured process to identify the root causes of recurring incidents and manage Known Errors in alignment with ITIL best practices.</p>
-               <p>My Contribution: Starting from the "As-Is" process analysis, I designed and configured the new target model on the ServiceNow Problem Management module. I customized the layouts (fields and lifecycle states) and defined the operational rules. Using Flow Designer, I created automations to logically and structurally link Incident, Problem, and Change records, facilitating seamless information handoffs between teams.</p>
-			   <p>The Impact: Transitioned the client from a reactive to a proactive approach, providing operators with clear workflows for definitive problem resolution and significantly reducing time spent on repetitive manual tasks.</p>`  
+    };
+
+    let currentLang = 'it';
+
+    function applyLang(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          el.innerHTML = t[key];
+        }
+      });
+
+      // Update page title
+      document.title = t['page-title'];
+
+      // Update anchor href for projects button
+      const projBtn = document.querySelector('[data-i18n="btn-projects"]');
+      if (projBtn) {
+        projBtn.setAttribute('href', '#' + (lang === 'it' ? 'progetti' : 'projects'));
       }
-    },
-    {
-      id: 3,
-      emoji: "🏦",
-      thumbClass: "remedy",
-      platform: "BMC Remedy",
-      tags: ["Change Management","Active Link","Filter","BMC Remedy","Innovation Studio","ITIL","Agile / Scrum"],
-      it: {
-        title: "Change Management – BMC Remedy",
-        short: "Implementazione del processo di Change Management per cliente bancario: raccolta requisiti, configurazione Mid Tier, sviluppo componenti custom in Developer Studio.",
-        full: `<p>Il Contesto: Un importante istituto bancario aveva bisogno di implementare un processo di Change Management rigoroso, capace di rispondere alle rigide normative di compliance e governance del settore.</p>
-               <p>Il Mio Contributo: Ho affiancato gli stakeholder IT di business nella raccolta dei requisiti, traducendoli in specifiche tecniche. Utilizzando BMC Remedy Developer Studio, ho personalizzato la Mid Tier e sviluppato componenti custom complessi come Active Link, Filters e Menu. Parallelamente, ho lavorato su BMC Innovation Studio per assicurarmi che l'architettura tecnica rispecchiasse fedelmente le regole di approvazione e le logiche ITIL richieste.</p>
-			   <p>L'Impatto: Consegna di un modulo di Change Management altamente customizzato e sicuro, in grado di supportare il cliente nel tracciamento e nell'auditing delle modifiche infrastrutturali critiche.</p>`  
-      },
-      en: {
-        title: "Change Management – BMC Remedy",
-        short: "Change Management implementation for a banking client: requirements gathering, Mid Tier configuration, custom component development in Developer Studio.",
-        full: `<p>The Context: A major banking institution needed to implement a rigorous Change Management process capable of meeting strict industry compliance and governance regulations.</p>
-               <p>My Contribution: I collaborated with IT and business stakeholders to gather requirements, translating them into technical specifications. Using BMC Remedy Developer Studio, I customized the Mid Tier and developed complex custom components such as Active Links, Filters, and Menus. Concurrently, I worked on BMC Innovation Studio to ensure the technical architecture accurately reflected the required approval workflows and ITIL logic.</p>
-			   <p>The Impact: Delivered a highly customized and secure Change Management module, enabling the client to track, manage, and audit critical infrastructure changes effectively.</p>`  
+
+      // Update section id
+      const projSection = document.getElementById('progetti') || document.getElementById('projects');
+      if (projSection) {
+        projSection.id = lang === 'it' ? 'progetti' : 'projects';
       }
-    },
-    {
-      id: 4,
-      emoji: "⚙️",
-      thumbClass: "remedy",
-      platform: "BMC Remedy",
-      tags: ["Change Management","Approvazioni","Tracciabilità","BMC Remedy","Data Quality","Agile / Scrum"],
-      it: {
-        title: "Change Management – Adattamento Secondo Contesto Bancario",
-        short: "Estensione del modello di Change Management per un secondo cliente bancario: personalizzazione regole, approvazioni e interfacce, focus su tracciabilità e qualità dei dati.",
-        full: `<p>Il Contesto: un secondo cliente bancario ha richiesto l'adozione e l'adattamento del modulo Change Management per la propria realtà organizzativa..</p>
-               <p>Il Mio Contributo: Ho capitalizzato il know-how acquisito per snellire la fase di design. Mi sono concentrato sull'estensione del modello esistente, personalizzando i flussi di approvazione (CAB) e le interfacce utente per adattarle alle nuove procedure operative. Il focus principale è stato l'inserimento di controlli per la data quality e la user experience degli operatori.</p>
-			   <p>L'Impatto: Riduzione significativa degli errori operativi in fase di inserimento delle Change Request e miglioramento della tracciabilità complessiva, con un rollout rapido grazie al riuso intelligente delle logiche architetturali.</p>`  
-      },
-      en: {
-        title: "Change Management – Second Banking Context Adaptation",
-        short: "Extension of the Change Management model for a second banking client: custom rules, approvals and interfaces, focusing on traceability and data quality.",
-        full: `<p>The Context: a second banking client requested the adoption and adaptation of the Change Management module for their specific organizational reality.</p>
-               <p>My Contribution: I leveraged acquired know-how to streamline the design phase. I focused on extending the existing model, customizing approval workflows (CAB), and modifying user interfaces to fit their new operational procedures. The primary focus was implementing data quality controls and improving the user experience for operators.</p>
-			   <p>The Impact: Achieved a significant reduction in operational errors during Change Request entry and improved overall traceability, allowing for a rapid rollout made possible by the intelligent reuse of architectural logic.</p>`  
-		}
-    },
-    {
-      id: 5,
-      emoji: "🔎",
-      thumbClass: "assess",
-      platform: "Assessment",
-      tags: ["Analisi Funzionale","ServiceNow","Servoy","Interviste","Migrazione","Agile / Scrum"],
-      it: {
-        title: "Assessment IT e Migrazione verso ServiceNow",
-        short: "Analisi funzionale del dipartimento IT tramite interviste, focus sul ticketing esistente e su Servoy. Contributo all'individuazione criticità e al percorso di transizione verso ServiceNow.",
-        full: `<p>Il Contesto: Il cliente utilizzava un sistema di ticketing legacy (Servoy) ormai obsoleto e aveva bisogno di una valutazione chiara per giustificare e pianificare la transizione verso una moderna piattaforma ITSM.</p>
-               <p>Il Mio Contributo: Ho condotto un ciclo di interviste approfondite (assessment) con le principali figure del dipartimento IT per mappare i processi esistenti. Ho redatto un'analisi funzionale dettagliata che ha messo in luce i colli di bottiglia, le inefficienze tecniche e le criticità organizzative. Successivamente, ho delineato i vantaggi della migrazione a ServiceNow, costruendo una roadmap logica per la transizione.</p>
-			   <p>L'Impatto: Il management ha ottenuto un documento strategico chiaro e oggettivo, essenziale per valutare gli impatti (tecnici, organizzativi e di change management) e prendere una decisione informata sull'adozione di ServiceNow.</p>`  
-      },
-      en: {
-        title: "IT Department Assessment & ServiceNow Migration",
-        short: "Functional analysis of an IT department through stakeholder interviews, focusing on the existing ticketing system and Servoy. Contributed to identifying issues and defining the ServiceNow transition path.",
-        full: `<p>The Context: The client was using an obsolete legacy ticketing system (Servoy) and needed a clear evaluation to justify and plan the transition to a modern ITSM platform.</p>
-               <p>My Contribution: I conducted an in-depth assessment through interviews with key IT department figures to map existing processes. I drafted a detailed functional analysis highlighting bottlenecks, technical inefficiencies, and organizational pain points. Subsequently, I outlined the business and technical benefits of migrating to ServiceNow, building a logical roadmap for the transition.</p>
-			   <p>The Impact: Provided management with a clear, objective strategic document, essential for evaluating technical, organizational, and change management impacts, enabling them to make an informed decision on adopting ServiceNow.</p>`  
-      }
-    },
-    {
-      id: 6,
-      emoji: "🌍",
-      thumbClass: "catalog",
-      platform: "ServiceNow",
-      tags: ["Service Catalog","Workshop","Governance","Scalabilità Globale","ITSM","Agile / Scrum"],
-      it: {
-        title: "Redesign del Service Catalog – Cliente Europeo",
-        short: "Analisi del Service Catalog esistente tramite workshop in inglese, contribuendo alla definizione di un nuovo catalogo orientato ai servizi, scalabile globalmente.",
-        full: `<p>Il Contesto: Il cliente, operante su scala europea, aveva un catalogo richieste frammentato e basato su singoli "item" sconnessi, difficile da scalare e da governare a livello globale.</p>
-               <p>Il Mio Contributo: Lavorando interamente in lingua inglese, ho facilitato workshop e interviste con i team IT internazionali per destrutturare il vecchio catalogo. Ho guidato il cliente verso un paradigma orientato ai servizi: non più la semplice richiesta di un hardware o software, ma la sottoscrizione a veri e propri servizi IT. Ho prodotto l'analisi funzionale per il nuovo design, definendo le categorie, i flussi di approvazione e le logiche di scalabilità globale.</p>
-			   <p>L'Impatto: Posa delle fondamenta per un catalogo moderno, user-friendly e centralizzato, standardizzato per tutti i paesi del gruppo e predisposto per future integrazioni lato automazione e provisioning.</p>`  
-      },
-      en: {
-        title: "Service Catalog Redesign – European Client",
-        short: "Analysis of the existing Service Catalog through workshops and interviews (entirely in English), contributing to the definition of a new service-oriented, globally scalable catalogue.",
-        full: `<p>The Context: An European enterprise client had a fragmented request catalog based on disconnected individual "items," making it difficult to scale and govern globally.</p>
-               <p>My Contribution: Working entirely in English, I facilitated workshops and interviews with international IT teams to deconstruct the old catalog. I guided the client toward a service-oriented paradigm: moving away from simple hardware/software requests to full IT service subscriptions. I produced the functional analysis for the new design, defining categories, approval workflows, and global scalability logic.</p>
-			   <p>The Impact: Laid the foundation for a modern, user-friendly, and centralized catalog, standardized across all countries within the group and primed for future automation and provisioning integrations.</p>`  
-      }
+
+      // Update toggle button
+      document.getElementById('langFlag').textContent = lang === 'it' ? '🇬🇧' : '🇮🇹';
+      document.getElementById('langLabel').textContent = lang === 'it' ? 'EN' : 'IT';
+      document.getElementById('langToggle').setAttribute('aria-label', lang === 'it' ? 'Switch to English' : 'Passa all\'italiano');
     }
-  ];
 
-  /* ═══════════════════════════════════════════
-     TRANSLATIONS
-  ═══════════════════════════════════════════ */
-  const translations = {
-    it: {
-      "page-title":    "Andrea Polverino — Analista Funzionale",
-      "badge":         "💼 Disponibile per nuove proposte",
-      "hero-title-1":  "Analista",
-      "hero-title-2":  "Funzionale",
-      "hero-desc":     "Analista funzionale con esperienza su ServiceNow e processi ITIL, trasformo esigenze di business in soluzioni concrete, seguendo i progetti dalla progettazione all'implementazione.",
-      "btn-contact":   "Contattami",
-      "btn-projects":  "Vedi progetti",
-      "stack-title":   "Tecnologie Usate",
-      "stack-snow":    "3 Certificazioni",
-      "stack-remedy":  "Innovation Studio, Remedy Developer Studio",
-      "stack-itil":    "Change, Problem, Knowledge",
-      "stack-sql":     "Conoscenza avanzata delle Query",
-      "projects-title":"Progetti in Evidenza",
-      "contact-title": "Hai un progetto<br />in mente?",
-      "contact-desc":  "Sono disponibile per progetti, collaborazioni e opportunità di lavoro da remoto.",
-      "contact-btn":   "Parliamone",
-      "footer-copy":   "© 2026 Andrea Polverino. Tutti i diritti riservati.",
-      "read-more":     "Approfondisci",
-      "modal-close-label": "Chiudi",
-      "section-id":    "progetti"
-    },
-    en: {
-      "page-title":    "Andrea Polverino — Functional Analyst",
-      "badge":         "💼 Available for new proposal",
-      "hero-title-1":  "Functional",
-      "hero-title-2":  "Analyst",
-      "hero-desc":     "Functional analyst with experience in ServiceNow and ITIL processes, I turn business requirements into concrete solutions, following projects from design through to implementation.",
-      "btn-contact":   "Get in touch",
-      "btn-projects":  "View projects",
-      "stack-title":   "Used Tecnology",
-      "stack-snow":    "3 Certifications",
-      "stack-remedy":  "Innovation Studio, Remedy Developer Studio",
-      "stack-itil":    "Change, Problem, Knowledge",
-      "stack-sql":     "Advanced Query skills",
-      "projects-title":"Featured Projects",
-      "contact-title": "Got a project<br />in mind?",
-      "contact-desc":  "I'm available for projects, collaborations and remote work opportunities.",
-      "contact-btn":   "Let's talk",
-      "footer-copy":   "© 2026 Andrea Polverino. All rights reserved.",
-      "read-more":     "Read more",
-      "modal-close-label": "Close",
-      "section-id":    "projects"
+    function toggleLang() {
+      currentLang = currentLang === 'it' ? 'en' : 'it';
+      applyLang(currentLang);
     }
-  };
 
-  /* ═══════════════════════════════════════════
-     STATE
-  ═══════════════════════════════════════════ */
-  let currentLang = 'it';
-
-  /* ═══════════════════════════════════════════
-     RENDER PROJECTS
-  ═══════════════════════════════════════════ */
-  function renderProjects(lang) {
-    const t = translations[lang];
-    const grid = document.getElementById('projectsGrid');
-    grid.innerHTML = '';
-    projects.forEach(p => {
-      const d = p[lang];
-      const card = document.createElement('div');
-      card.className = 'project-card';
-      card.setAttribute('role', 'button');
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('aria-label', d.title);
-      card.innerHTML = `
-        <div class="project-thumb ${p.thumbClass}">
-          <span>${p.emoji}</span>
-          <span class="platform-badge">${p.platform}</span>
-        </div>
-        <div class="project-body">
-          <h3>${d.title}</h3>
-          <p>${d.short}</p>
-          <div class="tag-list">${p.tags.map(tg=>`<span class="tag">${tg}</span>`).join('')}</div>
-          <span class="card-cta">
-            ${t['read-more']}
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </div>
-      `;
-      card.addEventListener('click', () => openModal(p, lang));
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(p, lang); });
-      grid.appendChild(card);
-    });
-  }
-
-  /* ═══════════════════════════════════════════
-     MODAL
-  ═══════════════════════════════════════════ */
-  function openModal(p, lang) {
-    const d = p[lang];
-    const t = translations[lang];
-    document.getElementById('modalPlatform').textContent = p.platform;
-    document.getElementById('modalTitle').textContent = d.title;
-    document.getElementById('modalBody').innerHTML = d.full;
-    document.getElementById('modalTags').innerHTML = p.tags.map(tg=>`<span class="tag">${tg}</span>`).join('');
-    document.getElementById('modalClose').setAttribute('aria-label', t['modal-close-label']);
-    document.getElementById('modalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('modalClose').focus();
-  }
-
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-  document.getElementById('modalOverlay').addEventListener('click', e => {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-  /* ═══════════════════════════════════════════
-     LANGUAGE SWITCH
-  ═══════════════════════════════════════════ */
-  function applyLang(lang) {
-    const t = translations[lang];
-    document.documentElement.lang = lang;
-    document.title = t['page-title'];
-
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (t[key] !== undefined) el.innerHTML = t[key];
-    });
-
-    // section id
-    const sec = document.getElementById('progetti') || document.getElementById('projects');
-    if (sec) sec.id = lang === 'it' ? 'progetti' : 'projects';
-
-    // btn anchor
-    const projBtn = document.querySelector('[data-i18n="btn-projects"]');
-    if (projBtn) projBtn.setAttribute('href', '#' + (lang === 'it' ? 'progetti' : 'projects'));
-
-    // toggle button
-    document.getElementById('langFlag').textContent = lang === 'it' ? '🇬🇧' : '🇮🇹';
-    document.getElementById('langLabel').textContent = lang === 'it' ? 'EN' : 'IT';
-
-    renderProjects(lang);
-  }
-
-  function toggleLang() {
-    currentLang = currentLang === 'it' ? 'en' : 'it';
-    applyLang(currentLang);
-  }
-
-  // Init
-  applyLang('it');
-  function openCertModal() {
-  document.getElementById('certModalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeCertModal() {
-  document.getElementById('certModalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.getElementById('certModalOverlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('certModalOverlay')) closeCertModal();
-});
+    // Init with Italian
+    applyLang('it');
   </script>
 </body>
 </html>
